@@ -4,6 +4,7 @@ import LifecycleVisual from "@/components/LifecycleVisual";
 import BuilderRoutingCard from "@/components/BuilderRoutingCard";
 import BuilderSection from "@/components/BuilderSection";
 import StewardSection from "@/components/StewardSection";
+import MentoringSection from "@/components/MentoringSection";
 import ResultsSection from "@/components/ResultsSection";
 import HowItWorks from "@/components/HowItWorks";
 import AboutSection from "@/components/AboutSection";
@@ -20,6 +21,7 @@ const Index = () => {
       <BuilderRoutingCard />
       <BuilderSection />
       <StewardSection />
+      <MentoringSection />
       <ResultsSection />
       <HowItWorks />
       <AboutSection />
