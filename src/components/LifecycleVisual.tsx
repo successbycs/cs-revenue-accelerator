@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const stages = [
-  { name: "Sign", tooltip: "Deals close but customers aren't set up for success from day one." },
+  { name: "Sign-up", tooltip: "Deals close but customers aren't set up for success from day one." },
   { name: "Onboard", tooltip: "Time-to-value is too long. Customers stall before seeing ROI." },
   { name: "Activate", tooltip: "Users aren't reaching the 'aha' moment. Adoption stays surface-level." },
   { name: "Adopt", tooltip: "Feature usage plateaus. Customers use 20% of what they bought." },
@@ -69,9 +69,7 @@ const LifecycleVisual = () => {
               </div>
               <div>
                 <p className="font-mono text-xs font-medium uppercase tracking-wider text-foreground">{s.name}</p>
-                {active === i && (
-                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{s.tooltip}</p>
-                )}
+                {active === i && <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{s.tooltip}</p>}
               </div>
             </button>
           ))}
