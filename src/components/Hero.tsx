@@ -30,6 +30,12 @@ const Hero = () => {
               >
                 I Need CS Leadership Cover →
               </a>
+              <a
+                href="#mentoring"
+                className="rounded-md border-2 border-accent-steward/60 bg-accent-steward/10 px-6 py-3 text-sm font-semibold text-accent-steward transition-colors hover:bg-accent-steward hover:text-on-dark"
+              >
+                New Head of CS? Get Mentored →
+              </a>
             </div>
           </div>
 
