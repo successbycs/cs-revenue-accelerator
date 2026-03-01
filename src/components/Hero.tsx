@@ -104,7 +104,8 @@ const Hero = () => {
               <div className="h-8 w-px bg-border" />
               <div className="text-center">
                 <p className="font-heading text-xl font-bold text-accent-builder">+20%</p>
-                <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Avg NRR Lift</p>
+                <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                </p>
               </div>
               <div className="h-8 w-px bg-border" />
               <div className="text-center">
@@ -124,10 +125,9 @@ const Hero = () => {
             <div className="relative">
 
               {/* Photo */}
-              <img
-                src={heroPhoto}
-                alt="Christopher Sparshott — Fractional Head of Customer Success"
-                className="h-80 w-64 rounded-xl object-cover shadow-xl sm:h-96 sm:w-72" />
+              <img src={heroPhoto}
+              alt="Christopher Sparshott — Fractional Head of Customer Success"
+              className="h-80 w-64 rounded-xl object-cover shadow-xl sm:h-96 sm:w-72" />
 
 
               {/* Broken lifecycle badge — top left */}
