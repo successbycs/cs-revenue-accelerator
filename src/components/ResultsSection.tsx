@@ -1,19 +1,19 @@
 const metrics = [
-  { label: "Average NRR Lift", value: "+15–20%", note: "Placeholder — based on engagement outcomes" },
-  { label: "Churn Reduction", value: "25–40%", note: "Placeholder — varies by lifecycle maturity" },
-  { label: "Time to Impact", value: "< 30 days", note: "Placeholder — typical first audit cycle" },
+  { label: "On-time Renewal rate", value: "+15–20%", note: "For mature organisations" },
+  { label: "Activation Rate", value: "+5-10%", note: "Especially for scaling fast paced businesses" },
+  { label: "Time to Impact", value: "< 30 days", note: "Quick wins in 30 days, systemic fixes up to 90 days" },
 ];
 
 const testimonials = [
   {
-    quote: "Placeholder testimonial — real client quote to be added.",
-    name: "Client Name",
-    role: "CRO, SaaS Company",
+    quote: "These are the best Activation results we have had for 2 years",
+    name: "New Zealand SaaS",
+    role: "Head of Customer",
   },
   {
-    quote: "Placeholder testimonial — real client quote to be added.",
-    name: "Client Name",
-    role: "VP CS, Growth-Stage SaaS",
+    quote: "I have managed to turn around under performing employees having been mentored with chris",
+    name: "Global Web Marketing Company",
+    role: "New HEad of Customer Success",
   },
 ];
 
