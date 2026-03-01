@@ -104,8 +104,7 @@ const Hero = () => {
               <div className="h-8 w-px bg-border" />
               <div className="text-center">
                 <p className="font-heading text-xl font-bold text-accent-builder">+20%</p>
-                <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                </p>
+                <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">ON-TIME RR</p>
               </div>
               <div className="h-8 w-px bg-border" />
               <div className="text-center">
