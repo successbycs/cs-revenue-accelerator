@@ -41,7 +41,8 @@ const BuilderSection = () => {
             Identify the Stage That's Costing You the Most.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-on-dark/70">
-            A focused lifecycle diagnosis that pinpoints where revenue is leaking — and gives you a 90-day action plan to fix it.
+            A focused lifecycle diagnosis that pinpoints where revenue is leaking — and gives you a 90-day action plan
+            to fix it.
           </p>
 
           <div className="mt-10">
@@ -58,7 +59,7 @@ const BuilderSection = () => {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="#contact"
+              href="https://meetings-ap1.hubspot.com/christopher-sparshott"
               className="rounded-md bg-accent-builder px-6 py-3 text-sm font-semibold text-on-dark transition-opacity hover:opacity-90"
             >
               Book a CS Lifecycle Audit
