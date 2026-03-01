@@ -1,4 +1,20 @@
+import { useEffect, useRef } from "react";
+
 const FooterCTA = () => {
+  const embedRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!embedRef.current) return;
+    const script = document.createElement("script");
+    script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+    script.type = "text/javascript";
+    script.async = true;
+    embedRef.current.appendChild(script);
+    return () => {
+      script.remove();
+    };
+  }, []);
+
   return (
     <section id="contact" className="bg-dark-builder py-16 lg:py-20">
       <div className="section-container text-center">
@@ -22,11 +38,14 @@ const FooterCTA = () => {
             Get the Audit Checklist
           </a>
         </div>
-        {/* HubSpot embed placeholder */}
-        <div className="mx-auto mt-10 max-w-md rounded-lg border border-on-dark/15 bg-on-dark/5 p-8">
-          <p className="text-sm text-on-dark/50 italic">
-            HubSpot meeting embed will be placed here.
-          </p>
+        <div
+          ref={embedRef}
+          className="mx-auto mt-10 max-w-md rounded-lg border border-on-dark/15 bg-on-dark/5 p-8"
+        >
+          <div
+            className="meetings-iframe-container"
+            data-src="https://meetings-ap1.hubspot.com/christopher-sparshott?embed=true"
+          />
         </div>
       </div>
     </section>
