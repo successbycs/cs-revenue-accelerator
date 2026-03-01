@@ -4,15 +4,19 @@ const FooterCTA = () => {
   const embedRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!embedRef.current) return;
-    const script = document.createElement("script");
-    script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-    script.type = "text/javascript";
-    script.async = true;
-    embedRef.current.appendChild(script);
-    return () => {
-      script.remove();
-    };
+    // HubSpot Meetings embed script should be loaded once on the page.
+    const scriptId = "hubspot-meetings-embed-script";
+
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+      script.type = "text/javascript";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    // No cleanup: keeping the script avoids reload/flicker if this component remounts.
   }, []);
 
   return (
@@ -38,6 +42,8 @@ const FooterCTA = () => {
             Get the Audit Checklist
           </a>
         </div>
+
+        {/* HubSpot Meetings embed */}
         <div
           ref={embedRef}
           className="mx-auto mt-10 max-w-md rounded-lg border border-on-dark/15 bg-on-dark/5 p-8"
