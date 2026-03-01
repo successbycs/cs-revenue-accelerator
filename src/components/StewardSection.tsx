@@ -10,7 +10,8 @@ const StewardSection = () => {
             Your CS Leader Left. Your Customers Can't Wait.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-on-dark/70">
-            Interim fractional CS leadership that keeps your team performing, your customers retained, and your board confident — while you hire the right permanent leader.
+            Interim fractional CS leadership that keeps your team performing, your customers retained, and your board
+            confident — while you hire the right permanent leader.
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
@@ -41,7 +42,7 @@ const StewardSection = () => {
 
           <div className="mt-10">
             <a
-              href="#contact"
+              href="https://meetings-ap1.hubspot.com/christopher-sparshott"
               className="inline-block rounded-md bg-accent-steward px-6 py-3 text-sm font-semibold text-on-dark transition-opacity hover:opacity-90"
             >
               Discuss Interim Cover →
