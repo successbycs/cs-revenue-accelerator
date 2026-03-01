@@ -10,7 +10,7 @@ const FooterCTA = () => {
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <a
-            href="#contact"
+            href="https://meetings-ap1.hubspot.com/christopher-sparshott"
             className="rounded-md bg-on-dark px-6 py-3 text-sm font-semibold text-dark-builder transition-opacity hover:opacity-90"
           >
             Book a CS Lifecycle Audit
