@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="border-t border-border py-10">
@@ -9,7 +11,7 @@ const Footer = () => {
           © {new Date().getFullYear()} SuccessByCS. All rights reserved.
         </p>
         <div className="flex gap-6">
-          <a href="#" className="text-xs text-muted-foreground hover:text-foreground">Privacy</a>
+          <Link to="/privacy" className="text-xs text-muted-foreground hover:text-foreground">Privacy</Link>
           <a href="#" className="text-xs text-muted-foreground hover:text-foreground">Terms</a>
         </div>
       </div>
