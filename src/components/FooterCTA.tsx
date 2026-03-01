@@ -24,10 +24,9 @@ const FooterCTA = () => {
         </div>
         {/* HubSpot embed placeholder */}
         <div className="mx-auto mt-10 max-w-md rounded-lg border border-on-dark/15 bg-on-dark/5 p-8">
-          <p className="text-sm text-on-dark/50 italic"><!-- Start of Meetings Embed Script -->
-    <div class="meetings-iframe-container" data-src="https://meetings-ap1.hubspot.com/christopher-sparshott?embed=true"></div>
-    <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
-  <!-- End of Meetings Embed Script --></p>
+          <p className="text-sm text-on-dark/50 italic">
+            HubSpot meeting embed will be placed here.
+          </p>
         </div>
       </div>
     </section>
