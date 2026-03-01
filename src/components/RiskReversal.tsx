@@ -9,13 +9,13 @@ const RiskReversal = () => {
           <h2 className="mt-4 font-heading text-2xl font-bold text-foreground sm:text-3xl">
             No Lock-in. No Long-term Contracts.
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Every engagement starts with a scoped audit or assessment. If the diagnosis doesn't surface clear revenue impact, you walk away with the insights — no obligation to continue.
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">Every engagement starts with a scoped audit or assessment. If the diagnosis doesn't surface clear revenue impact, you walk away with the insights no obligation to continue.
+
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default RiskReversal;
