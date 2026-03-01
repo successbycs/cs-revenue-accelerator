@@ -41,9 +41,9 @@ const MentoringSection = () => {
             Promoted to Head of CS? Let's Make Sure You Succeed.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            You were a high-performing IC. Now you're leading a team, owning revenue metrics, and reporting to the board. 
-            The skills that got you promoted aren't the skills that will make you successful. This mentoring engagement 
-            bridges that gap — fast.
+            You were a high-performing IC. Now you're leading a team, owning revenue metrics, and reporting to the
+            board. The skills that got you promoted aren't the skills that will make you successful. This mentoring
+            engagement bridges that gap — fast.
           </p>
         </div>
 
@@ -87,14 +87,24 @@ const MentoringSection = () => {
 
         {/* How it works */}
         <div className="mx-auto mt-14 max-w-2xl">
-          <h3 className="text-center font-heading text-2xl font-bold text-foreground">
-            How the Engagement Works
-          </h3>
+          <h3 className="text-center font-heading text-2xl font-bold text-foreground">How the Engagement Works</h3>
           <div className="mt-8 space-y-5">
             {[
-              { step: "01", title: "Discovery Call", desc: "We assess where you are, what's expected of you, and where the gaps are." },
-              { step: "02", title: "Structured Mentoring", desc: "Fortnightly 1:1 sessions focused on real challenges — not theory. Typically 3–6 months." },
-              { step: "03", title: "Async Support", desc: "Between sessions, you get direct access for board prep, team issues, and strategic decisions." },
+              {
+                step: "01",
+                title: "Discovery Call",
+                desc: "We assess where you are, what's expected of you, and where the gaps are.",
+              },
+              {
+                step: "02",
+                title: "Structured Mentoring",
+                desc: "Fortnightly 1:1 sessions focused on real challenges — not theory. Typically 3–6 months.",
+              },
+              {
+                step: "03",
+                title: "Async Support",
+                desc: "Between sessions, you get direct access for board prep, team issues, and strategic decisions.",
+              },
             ].map((s) => (
               <div key={s.step} className="flex gap-5 rounded-xl border border-border p-6">
                 <span className="font-mono text-2xl font-bold text-accent-steward">{s.step}</span>
@@ -110,7 +120,7 @@ const MentoringSection = () => {
         {/* CTA */}
         <div className="mt-14 text-center">
           <a
-            href="#contact"
+            href="https://meetings-ap1.hubspot.com/christopher-sparshott"
             className="inline-block rounded-md bg-accent-steward px-6 py-3 text-sm font-semibold text-on-dark transition-opacity hover:opacity-90"
           >
             Book a Mentoring Discovery Call →
