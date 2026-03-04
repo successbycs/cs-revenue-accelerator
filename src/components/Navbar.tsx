@@ -39,12 +39,6 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <a
-            href="#build-path"
-            className="rounded-md bg-accent-builder px-5 py-2.5 text-sm font-semibold text-on-dark transition-opacity hover:opacity-90"
-          >
-            Get the Audit Checklist
-          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -70,13 +64,6 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <a
-            href="#build-path"
-            onClick={() => setMobileOpen(false)}
-            className="mt-3 inline-block rounded-md bg-accent-builder px-5 py-2.5 text-sm font-semibold text-on-dark"
-          >
-            Get the Audit Checklist
-          </a>
         </div>
       )}
     </header>
