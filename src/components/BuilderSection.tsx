@@ -64,12 +64,6 @@ const BuilderSection = () => {
             >
               Book a CS Lifecycle Audit
             </a>
-            <a
-              href="#contact"
-              className="rounded-md border border-on-dark/30 px-6 py-3 text-sm font-semibold text-on-dark transition-colors hover:bg-on-dark/10"
-            >
-              Get the Audit Checklist
-            </a>
           </div>
         </div>
 
