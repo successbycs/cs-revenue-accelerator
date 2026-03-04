@@ -6,14 +6,14 @@ const metrics = [
 
 const testimonials = [
   {
-    quote: "These are the best Activation results we have had for 2 years",
+    quote: "These are the best Activation results we have had for 2 years, thank you",
     name: "New Zealand SaaS",
-    role: "Head of Customer",
+    role: "Chief Customer Officer",
   },
   {
-    quote: "I have managed to turn around under performing employees having been mentored with chris",
+    quote: "I have managed to turn around under performing employees and added repeatable processes and structures",
     name: "Global Web Marketing Company",
-    role: "New HEad of Customer Success",
+    role: "New Head of Customer Success",
   },
 ];
 
