@@ -11,23 +11,37 @@ const auditItems = [
 const tiers = [
   {
     name: "Activate & Adopt",
-    desc: "Turn new revenue into usage.",
+    desc: "Turn new revenue into measurable usage.",
+    includes: [
+      "Time to value and adoption benchmarks",
+      "Clarify onboarding ownership and accountability",
+      "Align CS, Sales, and Product around usage metrics",
+      "Establish stage-level KPIs tied to expansion",
+    ],
+    outcome: "Faster activation, higher product adoption, stronger expansion signals.",
   },
   {
     name: "Retain & Renew",
     desc: "Protect ARR before it's at risk.",
+    includes: [
+      "Surface renewal risk early through health scoring",
+      "Install structured renewal forecasting",
+      "Implement proactive value review cadence",
+      "Close ownership gaps across the lifecycle",
+    ],
+    outcome: "Predictable renewals, lower gross churn, stronger NRR.",
   },
   {
     name: "Full Lifecycle",
-    desc: "Build the compounding engine.",
+    desc: "Build the compounding revenue engine.",
+    includes: [
+      "Align KPIs from acquisition to renewal",
+      "Team accountability structure",
+      "Install cross-functional revenue rituals",
+      "Create a 90-day execution roadmap",
+    ],
+    outcome: "A Customer Success function that compounds revenue instead of firefighting.",
   },
-];
-
-const tierIncludes = [
-  "Stage-level metrics ownership",
-  "Team accountability structure",
-  "Revenue review cadence",
-  "Cross-functional alignment with Sales",
 ];
 
 const BuilderSection = () => {
@@ -86,13 +100,14 @@ const BuilderSection = () => {
                 <p className="mt-2 text-sm text-on-dark/60">{tier.desc}</p>
 
                 <ul className="mt-5 space-y-2">
-                  {tierIncludes.map((inc) => (
+                  {tier.includes.map((inc) => (
                     <li key={inc} className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent-builder/70" />
                       <span className="text-xs text-on-dark/70">{inc}</span>
                     </li>
                   ))}
                 </ul>
+                <p className="mt-4 text-xs italic text-on-dark/50">Outcome: {tier.outcome}</p>
               </div>
             ))}
           </div>
