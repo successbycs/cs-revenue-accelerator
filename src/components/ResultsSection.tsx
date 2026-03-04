@@ -12,7 +12,7 @@ const testimonials = [
   },
   {
     quote: "I have managed to turn around under performing employees and added repeatable processes and structures",
-    name: "Global Web Marketing Company",
+    name: "Global SEO Company",
     role: "New Head of Customer Success",
   },
 ];
