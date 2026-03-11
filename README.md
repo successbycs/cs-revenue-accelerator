@@ -1,73 +1,110 @@
-# Welcome to your Lovable project
+# CS Revenue Accelerator
 
-## Project info
+> A React + TypeScript web application built for SaaS Customer Success leaders to track, manage, and accelerate revenue retention and expansion metrics.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Built by [SuccessByCS](https://successbycs.com) — Fractional Customer Success Leadership for SaaS founders and growth-stage teams across ANZ, APAC & globally.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🎯 What It Does
 
-**Use Lovable**
+The CS Revenue Accelerator is a tool designed to help SaaS founders and CS teams move the needle on the metrics that matter most:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- 📉 **Churn reduction** — track at-risk accounts and intervention outcomes
+- 📈 **NRR growth** — monitor Net Revenue Retention toward 120%+ targets
+- 🚀 **Onboarding & activation** — measure time-to-first-value (FTTV) and adoption rates
+- 💬 **Customer health scoring** — visualise account health across your portfolio
+- 🔄 **Renewal & expansion** — manage renewal pipelines and upsell opportunities
+- 📊 **RevOps metrics** — connect CS activity to revenue outcomes
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🛠 Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Technology | Purpose |
+|---|---|
+| [React](https://react.dev) | UI framework |
+| [TypeScript](https://www.typescriptlang.org) | Type-safe development |
+| [Vite](https://vitejs.dev) | Fast build tooling |
+| [Tailwind CSS](https://tailwindcss.com) | Utility-first styling |
+| [shadcn/ui](https://ui.shadcn.com) | Component library |
+| [Vitest](https://vitest.dev) | Unit testing |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🚀 Getting Started
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Prerequisites
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Node.js (v18+) — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- npm
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Installation
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+# Clone the repository
+git clone https://github.com/successbycs/cs-revenue-accelerator.git
+
+# Navigate into the project
+cd cs-revenue-accelerator
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Running Tests
 
-**Use GitHub Codespaces**
+```bash
+npm run test
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Building for Production
 
-## What technologies are used for this project?
+```bash
+npm run build
+```
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📁 Project Structure
 
-## How can I deploy this project?
+```
+cs-revenue-accelerator/
+├── public/          # Static assets
+├── src/
+│   ├── components/  # Reusable UI components
+│   ├── pages/       # App pages/views
+│   └── ...
+├── index.html
+├── vite.config.ts
+└── tailwind.config.ts
+```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 🤝 About SuccessByCS
 
-Yes, you can!
+This tool is built and maintained by **Chris Sparshott** — a fractional Customer Success leader with 15+ years of experience helping SaaS founders retain revenue, reduce churn, and build scalable CS foundations.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+**Services include:**
+- ✳️ Onboarding programs & activation design
+- ✳️ Churn prevention & renewal playbooks
+- ✳️ Upsell & expansion strategy
+- ✳️ Customer health scoring
+- ✳️ CS tooling advisory
+- ✳️ Interim CS Leadership (10–30 hrs/month)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+📅 [Book a collaboration session](https://meetings-ap1.hubspot.com/meetings/christopher-sparshott)  
+🌐 [successbycs.com](https://successbycs.com)  
+💼 [LinkedIn](https://www.linkedin.com/in/chrissparshott/)
+
+---
+
+## 📄 License
+
+© Chris Sparshott Limited trading as SuccessByCS. All rights reserved.
