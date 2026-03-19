@@ -9,7 +9,7 @@ const pillars = [
 {
   icon: TrendingUp,
   title: "Revenue Ownership",
-  desc: "Own NRR, GRR, and expansion pipeline — not just health scores and sentiment."
+  desc: "Own NRR, GRR, and expansion pipeline not just health scores and sentiment."
 },
 {
   icon: Users,
