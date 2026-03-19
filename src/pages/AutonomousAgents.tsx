@@ -36,6 +36,12 @@ const AutonomousAgents = () => {
               </p>
               {/* Email Collection Widget */}
               <EarlyAccessForm />
+              <div className="mt-8 flex flex-wrap gap-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                <span className="rounded-full border border-border px-3 py-1">Controller-led orchestration</span>
+                <span className="rounded-full border border-border px-3 py-1">Bounded role execution</span>
+                <span className="rounded-full border border-border px-3 py-1">Verification before closure</span>
+                <span className="rounded-full border border-border px-3 py-1">Persistent audit trail</span>
+              </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#architecture"
@@ -49,12 +55,6 @@ const AutonomousAgents = () => {
                   className="inline-flex items-center rounded-md border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted">
                   Talk to Chris
                 </a>
-              </div>
-              <div className="mt-8 flex flex-wrap gap-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                <span className="rounded-full border border-border px-3 py-1">Controller-led orchestration</span>
-                <span className="rounded-full border border-border px-3 py-1">Bounded role execution</span>
-                <span className="rounded-full border border-border px-3 py-1">Verification before closure</span>
-                <span className="rounded-full border border-border px-3 py-1">Persistent audit trail</span>
               </div>
             </div>
           </div>
