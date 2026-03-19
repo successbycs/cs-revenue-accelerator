@@ -14,9 +14,9 @@ const AutonomousAgents = () => {
             className="pointer-events-none absolute inset-0 -z-10"
             style={{
               background:
-                "radial-gradient(ellipse 70% 50% at 60% 0%, hsl(var(--accent-steward) / 0.09) 0%, transparent 70%)",
-            }}
-          />
+              "radial-gradient(ellipse 70% 50% at 60% 0%, hsl(var(--accent-steward) / 0.09) 0%, transparent 70%)"
+            }} />
+          
           <div className="section-container">
             <div className="max-w-3xl">
               <p className="mb-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground/80">
@@ -36,17 +36,17 @@ const AutonomousAgents = () => {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#architecture"
-                  className="inline-flex items-center rounded-md bg-secondary px-5 py-2.5 text-sm font-semibold text-secondary-foreground transition-colors hover:bg-secondary/90"
-                >
+                  className="inline-flex items-center rounded-md bg-secondary px-5 py-2.5 text-sm font-semibold text-secondary-foreground transition-colors hover:bg-secondary/90">
+                  
                   See the system
                 </a>
                 <a
                   href="https://meetings-ap1.hubspot.com/christopher-sparshott"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-md border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
-                >
-                  Talk to SuccessByCS
+                  className="inline-flex items-center rounded-md border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted">Talk to Chris
+
+
                 </a>
               </div>
               <div className="mt-8 flex flex-wrap gap-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -110,8 +110,8 @@ const AutonomousAgents = () => {
               <img
                 src={architectureImg}
                 alt="Governed Autonomous Delivery System architecture showing controller, role loop, guardrails, execution substrate, and persistent evidence"
-                className="w-full rounded-lg"
-              />
+                className="w-full rounded-lg" />
+              
             </div>
           </div>
         </section>
@@ -127,19 +127,19 @@ const AutonomousAgents = () => {
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { title: "1. Milestone-aware controller", desc: "Selects the active unit of work, enforces dependencies, records run history, and decides next actions." },
-                { title: "2. Specialized role loop", desc: "Prework, planner, builder, reviewer, and QA separate discovery, execution, and validation concerns." },
-                { title: "3. Structured role packets", desc: "Roles receive bounded task context including scope, retry state, allowed tools, and write permissions." },
-                { title: "4. Verification gate", desc: "Tests, artifact checks, and manual verification requirements prevent silent 'looks done' completion." },
-                { title: "5. Tool governance", desc: "Tool access is declared centrally and filtered by milestone and role instead of being implicitly available." },
-                { title: "6. Audit layer", desc: "Closeout and backfill auditors preserve residual risk and make historical proof easier to trust." },
-                { title: "7. Persistent evidence", desc: "Run history, role outputs, audit logs, and milestone state give operators inspectable proof of execution." },
-              ].map((item) => (
-                <article key={item.title} className="rounded-xl border border-border bg-card p-6">
+              { title: "1. Milestone-aware controller", desc: "Selects the active unit of work, enforces dependencies, records run history, and decides next actions." },
+              { title: "2. Specialized role loop", desc: "Prework, planner, builder, reviewer, and QA separate discovery, execution, and validation concerns." },
+              { title: "3. Structured role packets", desc: "Roles receive bounded task context including scope, retry state, allowed tools, and write permissions." },
+              { title: "4. Verification gate", desc: "Tests, artifact checks, and manual verification requirements prevent silent 'looks done' completion." },
+              { title: "5. Tool governance", desc: "Tool access is declared centrally and filtered by milestone and role instead of being implicitly available." },
+              { title: "6. Audit layer", desc: "Closeout and backfill auditors preserve residual risk and make historical proof easier to trust." },
+              { title: "7. Persistent evidence", desc: "Run history, role outputs, audit logs, and milestone state give operators inspectable proof of execution." }].
+              map((item) =>
+              <article key={item.title} className="rounded-xl border border-border bg-card p-6">
                   <h3 className="font-heading text-lg font-bold text-foreground">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
                 </article>
-              ))}
+              )}
             </div>
           </div>
         </section>
@@ -155,17 +155,17 @@ const AutonomousAgents = () => {
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { title: "Bounded write scope", desc: "Mutating roles can only change declared areas of the repo." },
-                { title: "Declared tool access", desc: "Tools are exposed explicitly through the controller rather than left open-ended." },
-                { title: "Retry discipline", desc: "Actionable failures can retry inside a budget, but external blockers stop the loop honestly." },
-                { title: "Review and QA gates", desc: "Verification alone is not enough. Review and QA are required before closure." },
-                { title: "Audit after completion", desc: "Residual risk and caveats are captured even after milestones are marked complete." },
-              ].map((item) => (
-                <article key={item.title} className="rounded-xl border border-border bg-card p-6">
+              { title: "Bounded write scope", desc: "Mutating roles can only change declared areas of the repo." },
+              { title: "Declared tool access", desc: "Tools are exposed explicitly through the controller rather than left open-ended." },
+              { title: "Retry discipline", desc: "Actionable failures can retry inside a budget, but external blockers stop the loop honestly." },
+              { title: "Review and QA gates", desc: "Verification alone is not enough. Review and QA are required before closure." },
+              { title: "Audit after completion", desc: "Residual risk and caveats are captured even after milestones are marked complete." }].
+              map((item) =>
+              <article key={item.title} className="rounded-xl border border-border bg-card p-6">
                   <h3 className="font-heading text-lg font-bold text-foreground">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
                 </article>
-              ))}
+              )}
             </div>
           </div>
         </section>
@@ -190,15 +190,15 @@ const AutonomousAgents = () => {
                   href="https://meetings-ap1.hubspot.com/christopher-sparshott"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-                >
-                  Talk to SuccessByCS
+                  className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">Talk to Chris
+
+
                 </a>
                 <a
                   href="/"
                   className="inline-flex items-center rounded-md border border-white/20 px-6 py-3 text-sm font-semibold transition-colors hover:bg-white/10"
-                  style={{ color: "hsl(var(--text-on-dark))" }}
-                >
+                  style={{ color: "hsl(var(--text-on-dark))" }}>
+                  
                   Back to home
                 </a>
               </div>
@@ -207,8 +207,8 @@ const AutonomousAgents = () => {
         </section>
       </main>
       <Footer />
-    </>
-  );
+    </>);
+
 };
 
 export default AutonomousAgents;
