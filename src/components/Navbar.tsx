@@ -49,13 +49,13 @@ const Navbar = () => {
         {/* Desktop */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to={l.href}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
 
           {/* Agents Dropdown */}
