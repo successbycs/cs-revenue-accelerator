@@ -98,7 +98,7 @@ const MentoringSection = () => {
             {
               step: "02",
               title: "Structured Mentoring",
-              desc: "Fortnightly 1:1 sessions focused on real challenges — not theory. Typically 3–6 months."
+              desc: "Fortnightly 1:1 sessions focused on real challenges not theory. Typically 3–6 months."
             },
             {
               step: "03",
