@@ -265,4 +265,70 @@ const EarlyAccessForm = () => {
   );
 };
 
+const DownloadDiagramButton = () => {
+  const [showForm, setShowForm] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim()) return;
+    // TODO: wire up to backend / trigger download
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <div className="mt-6 rounded-lg border border-white/20 bg-white/10 px-6 py-4">
+        <p className="text-sm font-semibold" style={{ color: "hsl(var(--text-on-dark))" }}>
+          Thanks! Check your email for the download link.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div ref={ref} className="mt-6">
+      {!showForm ? (
+        <button
+          onClick={() => setShowForm(true)}
+          className="inline-flex items-center rounded-md border border-white/20 px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-white/10"
+          style={{ color: "hsl(var(--text-on-dark))" }}
+        >
+          Download the Architecture Diagram
+        </button>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <input
+            type="text"
+            placeholder="Your Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            maxLength={100}
+            className="h-11 rounded-md border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary sm:w-44"
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            maxLength={255}
+            className="h-11 rounded-md border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary sm:w-52"
+          />
+          <button
+            type="submit"
+            className="h-11 whitespace-nowrap rounded-md bg-primary px-5 text-sm font-bold tracking-wide text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Send me the diagram →
+          </button>
+        </form>
+      )}
+    </div>
+  );
+};
+
 export default AutonomousAgents;
