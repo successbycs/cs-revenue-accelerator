@@ -78,17 +78,19 @@ const Navbar = () => {
               />
             </button>
             {agentsOpen && (
-              <div className="absolute left-0 top-full mt-2 min-w-[220px] rounded-lg border border-border bg-popover p-1 shadow-lg">
-                {agentsDropdown.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    className="block rounded-md px-3 py-2.5 text-sm font-medium text-popover-foreground transition-colors hover:bg-muted"
-                    onClick={() => setAgentsOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+              <div className="absolute left-0 top-full z-50 min-w-[220px] pt-2">
+                <div className="rounded-lg border border-border bg-popover p-1 shadow-lg">
+                  {agentsDropdown.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className="block rounded-md px-3 py-2.5 text-sm font-medium text-popover-foreground transition-colors hover:bg-muted"
+                      onClick={() => setAgentsOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </div>
