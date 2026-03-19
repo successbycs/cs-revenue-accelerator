@@ -110,14 +110,14 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="border-t border-border bg-background px-5 pb-6 pt-4 md:hidden">
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to={l.href}
               onClick={() => setMobileOpen(false)}
               className="block py-3 text-sm font-medium text-foreground"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           {/* Mobile Agents section */}
           <div className="border-t border-border pt-3 mt-3">
