@@ -25,14 +25,16 @@ const AutonomousAgents = () => {
                 Case Study
               </p>
               <h1 className="font-heading text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem]">
-                From AI Agent Demo to Governed Autonomous Delivery System
+                ChatGPT AI  to Governed Autonomous Delivery System
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                This system was designed to make autonomy useful for real software
-                delivery, not just visually impressive. Instead of relying on one
-                generic agent, it separates orchestration, planning, implementation,
-                review, QA, and audit into a controller-led operating model with
-                explicit proof at each step.
+                This system was designed to make autonomy useful for project
+                delivery, especially useful for developing tools to access business
+                content and analyzing it, building knowledge bases and working on
+                software development. Instead of relying on one generic agent, it
+                separates orchestration, planning, implementation, review, QA, and
+                audit into a controller-led operating model with explicit proof at
+                each step. Its like magic but it isn't magic.
               </p>
               {/* Email Collection Widget */}
               <EarlyAccessForm />
