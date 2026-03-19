@@ -19,7 +19,7 @@ const pillars = [
 {
   icon: MessageCircle,
   title: "Board & Exec Communication",
-  desc: "Learn to present CS as a revenue engine — not a cost centre — in board and leadership forums."
+  desc: "Learn to present CS as a revenue engine not a cost centre in board and leadership forums."
 },
 {
   icon: CalendarCheck,
