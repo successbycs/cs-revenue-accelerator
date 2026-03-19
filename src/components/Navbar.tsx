@@ -78,7 +78,7 @@ const Navbar = () => {
               />
             </button>
             {agentsOpen && (
-              <div className="absolute left-0 top-full z-50 min-w-[220px] pt-2">
+              <div className="absolute right-0 top-full z-50 min-w-[220px] pt-2">
                 <div className="rounded-lg border border-border bg-popover p-1 shadow-lg">
                   {agentsDropdown.map((item) => (
                     <Link
