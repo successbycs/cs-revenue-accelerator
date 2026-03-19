@@ -9,7 +9,7 @@ const pillars = [
 {
   icon: TrendingUp,
   title: "Revenue Ownership",
-  desc: "Own NRR, GRR, and expansion pipeline — not just health scores and sentiment."
+  desc: "Own NRR, GRR, and expansion pipeline not just health scores and sentiment."
 },
 {
   icon: Users,
@@ -19,7 +19,7 @@ const pillars = [
 {
   icon: MessageCircle,
   title: "Board & Exec Communication",
-  desc: "Learn to present CS as a revenue engine — not a cost centre — in board and leadership forums."
+  desc: "Learn to present CS as a revenue engine not a cost centre in board and leadership forums."
 },
 {
   icon: CalendarCheck,
@@ -98,7 +98,7 @@ const MentoringSection = () => {
             {
               step: "02",
               title: "Structured Mentoring",
-              desc: "Fortnightly 1:1 sessions focused on real challenges — not theory. Typically 3–6 months."
+              desc: "Fortnightly 1:1 sessions focused on real challenges not theory. Typically 3–6 months."
             },
             {
               step: "03",
