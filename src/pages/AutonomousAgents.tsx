@@ -294,8 +294,7 @@ const DownloadDiagramButton = () => {
       {!showForm ? (
         <button
           onClick={() => setShowForm(true)}
-          className="inline-flex items-center rounded-md border border-white/20 px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-white/10"
-          style={{ color: "hsl(var(--text-on-dark))" }}
+          className="inline-flex items-center rounded-md bg-secondary px-5 py-2.5 text-sm font-semibold text-secondary-foreground transition-colors hover:bg-secondary/90"
         >
           Download the Architecture Diagram
         </button>
