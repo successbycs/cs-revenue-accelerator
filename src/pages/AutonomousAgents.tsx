@@ -108,6 +108,7 @@ const AutonomousAgents = () => {
                 verification evidence, and decides whether work should retry, block,
                 or close.
               </p>
+              <DownloadDiagramButton />
             </div>
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white p-2 shadow-2xl">
               <img
