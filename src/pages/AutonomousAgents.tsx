@@ -257,7 +257,7 @@ const EarlyAccessForm = () => {
       />
       <button
         type="submit"
-        className="h-11 whitespace-nowrap rounded-md bg-secondary px-5 text-sm font-bold uppercase tracking-wide text-secondary-foreground transition-colors hover:bg-secondary/90"
+        className="h-11 whitespace-nowrap rounded-md bg-primary px-5 text-sm font-bold tracking-wide text-primary-foreground transition-colors hover:bg-primary/90"
       >
         Get Early Access to Autonomous Framework →
       </button>
