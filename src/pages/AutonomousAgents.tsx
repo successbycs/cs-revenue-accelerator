@@ -56,6 +56,9 @@ const AutonomousAgents = () => {
                 <span className="rounded-full border border-border px-3 py-1">Verification before closure</span>
                 <span className="rounded-full border border-border px-3 py-1">Persistent audit trail</span>
               </div>
+
+              {/* Email Collection Widget */}
+              <EarlyAccessForm />
             </div>
           </div>
         </section>
