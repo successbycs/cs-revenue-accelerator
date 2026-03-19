@@ -49,13 +49,13 @@ const Navbar = () => {
         {/* Desktop */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to={l.href}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
 
           {/* Agents Dropdown */}
@@ -110,14 +110,14 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="border-t border-border bg-background px-5 pb-6 pt-4 md:hidden">
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to={l.href}
               onClick={() => setMobileOpen(false)}
               className="block py-3 text-sm font-medium text-foreground"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           {/* Mobile Agents section */}
           <div className="border-t border-border pt-3 mt-3">
