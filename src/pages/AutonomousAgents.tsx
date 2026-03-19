@@ -34,20 +34,20 @@ const AutonomousAgents = () => {
                 review, QA, and audit into a controller-led operating model with
                 explicit proof at each step.
               </p>
+              {/* Email Collection Widget */}
+              <EarlyAccessForm />
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#architecture"
                   className="inline-flex items-center rounded-md bg-secondary px-5 py-2.5 text-sm font-semibold text-secondary-foreground transition-colors hover:bg-secondary/90">
-                  
                   See the system
                 </a>
                 <a
                   href="https://meetings-ap1.hubspot.com/christopher-sparshott"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-md border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted">Talk to Chris
-
-
+                  className="inline-flex items-center rounded-md border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted">
+                  Talk to Chris
                 </a>
               </div>
               <div className="mt-8 flex flex-wrap gap-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -56,9 +56,6 @@ const AutonomousAgents = () => {
                 <span className="rounded-full border border-border px-3 py-1">Verification before closure</span>
                 <span className="rounded-full border border-border px-3 py-1">Persistent audit trail</span>
               </div>
-
-              {/* Email Collection Widget */}
-              <EarlyAccessForm />
             </div>
           </div>
         </section>
