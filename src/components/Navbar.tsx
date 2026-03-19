@@ -3,9 +3,9 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const navLinks = [
-  { label: "How I Help", href: "#how-i-help" },
-  { label: "Results", href: "#results" },
-  { label: "About", href: "#about" },
+  { label: "How I Help", href: "/#how-i-help" },
+  { label: "Results", href: "/#results" },
+  { label: "About", href: "/#about" },
 ];
 
 const agentsDropdown = [
