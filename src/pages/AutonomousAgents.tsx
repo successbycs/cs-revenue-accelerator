@@ -215,4 +215,54 @@ const AutonomousAgents = () => {
 
 };
 
+const EarlyAccessForm = () => {
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!firstName.trim() || !email.trim()) return;
+    // TODO: wire up to backend
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <div className="mt-8 rounded-lg border border-primary/30 bg-primary/5 px-6 py-4">
+        <p className="text-sm font-semibold text-foreground">Thanks! We'll be in touch soon.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <input
+        type="text"
+        placeholder="First Name"
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
+        required
+        maxLength={100}
+        className="h-11 rounded-md border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary sm:w-44"
+      />
+      <input
+        type="email"
+        placeholder="Email Address"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+        maxLength={255}
+        className="h-11 rounded-md border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary sm:w-52"
+      />
+      <button
+        type="submit"
+        className="h-11 whitespace-nowrap rounded-md bg-secondary px-5 text-sm font-bold uppercase tracking-wide text-secondary-foreground transition-colors hover:bg-secondary/90"
+      >
+        Get Early Access to Autonomous Framework →
+      </button>
+    </form>
+  );
+};
+
 export default AutonomousAgents;
