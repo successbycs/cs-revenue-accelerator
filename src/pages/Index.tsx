@@ -15,6 +15,17 @@ import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+      }
+    }
+  }, [hash]);
+
   return (
     <main>
       <Navbar />
