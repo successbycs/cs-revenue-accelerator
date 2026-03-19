@@ -59,10 +59,10 @@ const Hero = () => {
             </h1>
 
             {/* Sub */}
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              You've got a CS problem — churn, stalled activation, a team without
-              direction, or a leader going on leave. I step in, diagnose the broken
-              stage, fix it, and leave you with a system that holds.
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">You've got a CS problem: churn, stalled activation, a team without direction, or a leader going on leave. I step in, diagnose the broken stage, fix it, and leave you with a system that holds.  I will also use AI and Autonomous Agents to help accelerate your business in ALL engagements.
+
+
+
             </p>
 
             {/* Trust line */}
