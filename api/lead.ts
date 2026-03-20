@@ -19,6 +19,14 @@ type ResponseLike = {
 };
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const TRUE_VALUES = new Set(["1", "true", "yes", "on"]);
+
+type MailError = Error & {
+  code?: string;
+  command?: string;
+  response?: string;
+  responseCode?: number;
+};
 
 function getEnv(name: string) {
   const value = process.env[name];
@@ -28,6 +36,24 @@ function getEnv(name: string) {
   }
 
   return value;
+}
+
+function parsePort(value: string) {
+  const port = Number.parseInt(value, 10);
+
+  if (Number.isNaN(port) || port <= 0) {
+    throw new Error("Invalid SMTP_PORT value.");
+  }
+
+  return port;
+}
+
+function parseSecure(value: string | undefined, port: number) {
+  if (!value) {
+    return port === 465;
+  }
+
+  return TRUE_VALUES.has(value.trim().toLowerCase());
 }
 
 function getHeader(req: RequestLike, name: string) {
@@ -90,13 +116,13 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
 
   try {
     const smtpHost = getEnv("SMTP_HOST");
-    const smtpPort = Number(getEnv("SMTP_PORT"));
-    const smtpSecure = getEnv("SMTP_SECURE") === "true";
+    const smtpPort = parsePort(getEnv("SMTP_PORT"));
     const smtpUser = getEnv("SMTP_USER");
     const smtpPass = getEnv("SMTP_PASS");
-    const smtpFromEmail = getEnv("SMTP_FROM_EMAIL");
+    const smtpFromEmail = (process.env.SMTP_FROM_EMAIL?.trim() || smtpUser).trim();
     const notifyEmail = getEnv("EARLY_ACCESS_TO_EMAIL");
     const siteUrl = process.env.SITE_URL?.trim();
+    const smtpSecure = parseSecure(process.env.SMTP_SECURE, smtpPort);
 
     const forwardedFor = getHeader(req, "x-forwarded-for") ?? "unknown";
     const userAgent = getHeader(req, "user-agent") ?? "unknown";
@@ -112,8 +138,11 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
       },
       host: smtpHost,
       port: smtpPort,
+      requireTLS: !smtpSecure,
       secure: smtpSecure,
     });
+
+    await transporter.verify();
 
     const htmlLines = [
       `<p><strong>Request type:</strong> ${escapeHtml(labelForType(type))}</p>`,
@@ -126,7 +155,7 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
     ].filter(Boolean);
 
     await transporter.sendMail({
-      from: smtpFromEmail,
+      from: `SuccessByCS <${smtpFromEmail}>`,
       html: htmlLines.join(""),
       replyTo: email,
       subject,
@@ -152,7 +181,32 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
       ok: true,
     });
   } catch (error) {
-    console.error("Lead capture failed", error);
-    return res.status(500).json({ error: "Lead capture is not configured correctly." });
+    const mailError = error as MailError;
+
+    console.error("Lead capture failed", {
+      code: mailError.code,
+      command: mailError.command,
+      message: mailError.message,
+      response: mailError.response,
+      responseCode: mailError.responseCode,
+    });
+
+    if (mailError.message?.includes("Missing required environment variable")) {
+      return res.status(500).json({ error: "Server email configuration is incomplete." });
+    }
+
+    if (mailError.message === "Invalid SMTP_PORT value.") {
+      return res.status(500).json({ error: "SMTP port configuration is invalid." });
+    }
+
+    if (mailError.code === "EAUTH" || mailError.responseCode === 535) {
+      return res.status(500).json({ error: "SMTP authentication failed. Check the Gmail username and app password." });
+    }
+
+    if (mailError.code === "ESOCKET" || mailError.code === "ETIMEDOUT") {
+      return res.status(500).json({ error: "SMTP connection failed. Check host, port, and secure settings." });
+    }
+
+    return res.status(500).json({ error: "Lead capture email failed. Check the Vercel SMTP settings." });
   }
 }
