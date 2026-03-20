@@ -20,6 +20,8 @@ type ResponseLike = {
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const TRUE_VALUES = new Set(["1", "true", "yes", "on"]);
+const CALENDAR_URL =
+  "https://meetings-ap1.hubspot.com/christopher-sparshott?uuid=d0c58d43-5aed-4d34-8e8b-4eb924f6ba68";
 
 type MailError = Error & {
   code?: string;
@@ -93,6 +95,10 @@ function escapeHtml(value: string) {
 
 function labelForType(type: NonNullable<LeadCaptureBody["type"]>) {
   return type === "architecture-download" ? "Architecture diagram request" : "Autonomous framework early access";
+}
+
+function firstNameFromName(name: string) {
+  return name.trim().split(/\s+/)[0] || name;
 }
 
 export default async function handler(req: RequestLike, res: ResponseLike) {
@@ -191,11 +197,44 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
       to: notifyEmail,
     });
 
+    if (type === "early-access") {
+      const firstName = escapeHtml(firstNameFromName(name));
+      const acknowledgementHtml = [
+        `<p>Hi ${firstName},</p>`,
+        "<p>Thanks for your interest in the Autonomous Framework.</p>",
+        "<p>The framework is currently in development and should be available in approximately 6-8 weeks. We will come back to you as soon as it is ready.</p>",
+        "<p>In the meantime, if you would like to talk about Customer Success and how I can help improve retention, onboarding, and broader lifecycle performance, you can book time with me here:</p>",
+        `<p><a href="${CALENDAR_URL}">Book a time with Chris</a></p>`,
+        "<p>Best,<br />Chris Sparshott<br />SuccessByCS</p>",
+      ].join("");
+
+      await transporter.sendMail({
+        from: `SuccessByCS <${smtpFromEmail}>`,
+        html: acknowledgementHtml,
+        subject: "Thanks for joining the Autonomous Framework early access list",
+        text: [
+          `Hi ${firstNameFromName(name)},`,
+          "",
+          "Thanks for your interest in the Autonomous Framework.",
+          "",
+          "The framework is currently in development and should be available in approximately 6-8 weeks. We will come back to you as soon as it is ready.",
+          "",
+          "In the meantime, if you would like to talk about Customer Success and how I can help improve retention, onboarding, and broader lifecycle performance, you can book time with me here:",
+          CALENDAR_URL,
+          "",
+          "Best,",
+          "Chris Sparshott",
+          "SuccessByCS",
+        ].join("\n"),
+        to: email,
+      });
+    }
+
     return res.status(200).json({
       message:
         type === "architecture-download"
           ? "Request received. The diagram download can start now."
-          : "Request received. Chris can reply directly to your email.",
+          : "Request received. A confirmation email is on the way.",
       ok: true,
     });
   } catch (error) {
