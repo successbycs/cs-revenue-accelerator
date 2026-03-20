@@ -128,6 +128,8 @@ npm run test     # Run unit tests (Vitest)
 npm run lint     # Lint with ESLint
 ```
 
+Note: the lead capture API lives in `api/lead.ts`. `npm run dev` starts only the Vite frontend, so end-to-end form submission should be tested on Vercel or with `vercel dev`.
+
 ### Vercel Environment Variables
 
 Use `.env.example` as the reference for the required production variables:
