@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
   { label: "How I Help", href: "/#how-i-help" },
@@ -13,10 +13,12 @@ const agentsDropdown = [
 ];
 
 const Navbar = () => {
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [agentsOpen, setAgentsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const showHomeLink = location.pathname !== "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -48,6 +50,14 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden items-center gap-8 md:flex">
+          {showHomeLink ? (
+            <Link
+              to="/"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Home
+            </Link>
+          ) : null}
           {navLinks.map((l) => (
             <Link
               key={l.href}
@@ -109,6 +119,15 @@ const Navbar = () => {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="border-t border-border bg-background px-5 pb-6 pt-4 md:hidden">
+          {showHomeLink ? (
+            <Link
+              to="/"
+              onClick={() => setMobileOpen(false)}
+              className="block py-3 text-sm font-medium text-foreground"
+            >
+              Home
+            </Link>
+          ) : null}
           {navLinks.map((l) => (
             <Link
               key={l.href}
