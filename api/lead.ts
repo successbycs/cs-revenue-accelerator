@@ -38,6 +38,10 @@ function getEnv(name: string) {
   return value;
 }
 
+function getMissingEnvVars(names: string[]) {
+  return names.filter((name) => !process.env[name]?.trim());
+}
+
 function parsePort(value: string) {
   const port = Number.parseInt(value, 10);
 
@@ -115,6 +119,20 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
   }
 
   try {
+    const missingEnvVars = getMissingEnvVars([
+      "EARLY_ACCESS_TO_EMAIL",
+      "SMTP_HOST",
+      "SMTP_PASS",
+      "SMTP_PORT",
+      "SMTP_USER",
+    ]);
+
+    if (missingEnvVars.length > 0) {
+      return res.status(500).json({
+        error: `Server email configuration is incomplete: ${missingEnvVars.join(", ")}.`,
+      });
+    }
+
     const smtpHost = getEnv("SMTP_HOST");
     const smtpPort = parsePort(getEnv("SMTP_PORT"));
     const smtpUser = getEnv("SMTP_USER");
@@ -192,7 +210,7 @@ export default async function handler(req: RequestLike, res: ResponseLike) {
     });
 
     if (mailError.message?.includes("Missing required environment variable")) {
-      return res.status(500).json({ error: "Server email configuration is incomplete." });
+      return res.status(500).json({ error: mailError.message });
     }
 
     if (mailError.message === "Invalid SMTP_PORT value.") {
