@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { submitLeadCapture } from "@/lib/leadCapture";
@@ -201,13 +200,6 @@ const AutonomousAgents = () => {
 
 
                 </a>
-                <Link
-                  to="/"
-                  className="inline-flex items-center rounded-md border border-white/20 px-6 py-3 text-sm font-semibold transition-colors hover:bg-white/10"
-                  style={{ color: "hsl(var(--text-on-dark))" }}>
-                  
-                  Back to home
-                </Link>
               </div>
             </div>
           </div>
