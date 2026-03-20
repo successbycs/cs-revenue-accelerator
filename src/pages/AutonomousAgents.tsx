@@ -1,7 +1,10 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import architectureImg from "@/assets/architecture-case-study.png";
+import { submitLeadCapture } from "@/lib/leadCapture";
+
+const ARCHITECTURE_DIAGRAM_URL = "/architecture-case-study.png";
 
 const AutonomousAgents = () => {
   return (
@@ -112,7 +115,7 @@ const AutonomousAgents = () => {
             </div>
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white p-2 shadow-2xl">
               <img
-                src={architectureImg}
+                src={ARCHITECTURE_DIAGRAM_URL}
                 alt="Governed Autonomous Delivery System architecture showing controller, role loop, guardrails, execution substrate, and persistent evidence"
                 className="w-full rounded-lg" />
               
@@ -198,13 +201,13 @@ const AutonomousAgents = () => {
 
 
                 </a>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="inline-flex items-center rounded-md border border-white/20 px-6 py-3 text-sm font-semibold transition-colors hover:bg-white/10"
                   style={{ color: "hsl(var(--text-on-dark))" }}>
                   
                   Back to home
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -218,50 +221,79 @@ const AutonomousAgents = () => {
 const EarlyAccessForm = () => {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!firstName.trim() || !email.trim()) return;
-    // TODO: wire up to backend
-    setSubmitted(true);
+
+    try {
+      setSubmitting(true);
+      setError("");
+      await submitLeadCapture({
+        email,
+        name: firstName,
+        type: "early-access",
+      });
+      setSubmitted(true);
+    } catch (submissionError) {
+      setError(
+        submissionError instanceof Error
+          ? submissionError.message
+          : "We could not submit your request. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
     return (
       <div className="mt-8 rounded-lg border border-primary/30 bg-primary/5 px-6 py-4">
-        <p className="text-sm font-semibold text-foreground">Thanks! We'll be in touch soon.</p>
+        <p className="text-sm font-semibold text-foreground">
+          Thanks. Your request has been sent and Chris can reply directly to your email.
+        </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-      <input
-        type="text"
-        placeholder="First Name"
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
-        required
-        maxLength={100}
-        className="h-11 rounded-md border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary sm:w-44"
-      />
-      <input
-        type="email"
-        placeholder="Email Address"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        maxLength={255}
-        className="h-11 rounded-md border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary sm:w-52"
-      />
-      <button
-        type="submit"
-        className="h-11 whitespace-nowrap rounded-md bg-primary px-5 text-sm font-bold tracking-wide text-primary-foreground transition-colors hover:bg-primary/90"
-      >
-        Get Early Access to Autonomous Framework →
-      </button>
-    </form>
+    <div className="mt-8">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+          maxLength={100}
+          className="h-11 rounded-md border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary sm:w-44"
+        />
+        <input
+          type="email"
+          placeholder="Email Address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          maxLength={255}
+          className="h-11 rounded-md border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary sm:w-52"
+        />
+        <button
+          type="submit"
+          disabled={submitting}
+          className="h-11 whitespace-nowrap rounded-md bg-primary px-5 text-sm font-bold tracking-wide text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
+        >
+          {submitting ? "Submitting..." : "Get Early Access to Autonomous Framework →"}
+        </button>
+      </form>
+      {error ? (
+        <p className="mt-3 text-sm text-red-600" role="alert">
+          {error}
+        </p>
+      ) : null}
+    </div>
   );
 };
 
@@ -269,28 +301,61 @@ const DownloadDiagramButton = () => {
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim()) return;
-    // TODO: wire up to backend / trigger download
-    setSubmitted(true);
+
+    try {
+      setSubmitting(true);
+      setError("");
+      await submitLeadCapture({
+        email,
+        name,
+        type: "architecture-download",
+      });
+      setSubmitted(true);
+
+      const link = document.createElement("a");
+      link.href = ARCHITECTURE_DIAGRAM_URL;
+      link.download = "governed-autonomous-delivery-system.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (submissionError) {
+      setError(
+        submissionError instanceof Error
+          ? submissionError.message
+          : "We could not submit your request. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
     return (
       <div className="mt-6 rounded-lg border border-white/20 bg-white/10 px-6 py-4">
         <p className="text-sm font-semibold" style={{ color: "hsl(var(--text-on-dark))" }}>
-          Thanks! Check your email for the download link.
+          Thanks. The download should start automatically.
         </p>
+        <a
+          href={ARCHITECTURE_DIAGRAM_URL}
+          download="governed-autonomous-delivery-system.png"
+          className="mt-3 inline-flex items-center text-sm font-semibold underline"
+          style={{ color: "hsl(var(--text-on-dark))" }}
+        >
+          Download the diagram again
+        </a>
       </div>
     );
   }
 
   return (
-    <div ref={ref} className="mt-6">
+    <div className="mt-6">
       {!showForm ? (
         <button
           onClick={() => setShowForm(true)}
@@ -320,12 +385,18 @@ const DownloadDiagramButton = () => {
           />
           <button
             type="submit"
-            className="h-11 whitespace-nowrap rounded-md bg-primary px-5 text-sm font-bold tracking-wide text-primary-foreground transition-colors hover:bg-primary/90"
+            disabled={submitting}
+            className="h-11 whitespace-nowrap rounded-md bg-primary px-5 text-sm font-bold tracking-wide text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            Send me the diagram →
+            {submitting ? "Submitting..." : "Send me the diagram →"}
           </button>
         </form>
       )}
+      {error ? (
+        <p className="mt-3 text-sm text-red-200" role="alert">
+          {error}
+        </p>
+      ) : null}
     </div>
   );
 };

@@ -81,6 +81,7 @@ A conversion-focused single-page marketing site that routes visitors into one of
 
 - **HubSpot Meetings** — booking embed in `FooterCTA.tsx`, direct link at `https://meetings-ap1.hubspot.com/christopher-sparshott`
 - **WhatsApp** — floating widget with pre-filled message (`+64 21 574 696`)
+- **Vercel Lead API** — `api/lead.ts` sends early-access and architecture-download submissions to the configured Gmail inbox
 - **LinkedIn Insight Tag** — analytics pixel in site footer
 
 ---
@@ -125,6 +126,21 @@ npm run build    # Production build → /dist
 npm run preview  # Preview production build locally
 npm run test     # Run unit tests (Vitest)
 npm run lint     # Lint with ESLint
+```
+
+### Vercel Environment Variables
+
+Use `.env.example` as the reference for the required production variables:
+
+```bash
+SITE_URL
+EARLY_ACCESS_TO_EMAIL
+SMTP_FROM_EMAIL
+SMTP_HOST
+SMTP_PASS
+SMTP_PORT
+SMTP_SECURE
+SMTP_USER
 ```
 
 ---

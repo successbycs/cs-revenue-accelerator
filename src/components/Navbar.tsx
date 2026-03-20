@@ -42,9 +42,9 @@ const Navbar = () => {
       }`}
     >
       <nav className="section-container flex items-center justify-between py-4">
-        <a href="/" className="font-heading text-xl font-bold tracking-tight text-foreground">
+        <Link to="/" className="font-heading text-xl font-bold tracking-tight text-foreground">
           SuccessBy<span className="text-accent-builder">CS</span>
-        </a>
+        </Link>
 
         {/* Desktop */}
         <div className="hidden items-center gap-8 md:flex">
